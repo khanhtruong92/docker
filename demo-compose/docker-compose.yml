@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    image: node:18-alpine3.15
+
+    # The container name
+    container_name: docker-compose-app
+
+    # Directory to work inside the container
+    working_dir: /home/app
+
+    # Command we run when start the container
+    command: node index.js
+
+    # Mapping of container port to host    
+    ports:
+      - "5001:5001"
+
+    # Mount volume 
+    volumes:
+      - "./index.js:/home/app/index.js"
